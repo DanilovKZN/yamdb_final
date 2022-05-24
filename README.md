@@ -10,4 +10,4 @@
 Данилов Николай
 
 ```
-![example workflow](https://github.com/DanilovKZN/yamdb_final/actions/workflows/yamdb_worflow.yml/badge.svg)
+https://github.com/DanilovKZN/yamdb_final/actions/workflows/yamdb_worflow.yml/badge.svg
