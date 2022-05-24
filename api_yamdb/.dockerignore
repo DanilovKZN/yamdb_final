@@ -2,5 +2,4 @@
 *env/*
 *ENV/*
 *env.bak/*
-.Dockerfile
 .git
