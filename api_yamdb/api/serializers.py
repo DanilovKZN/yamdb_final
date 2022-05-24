@@ -2,15 +2,8 @@ import re
 
 from rest_framework import serializers, status
 from rest_framework.relations import SlugRelatedField
-
+from reviews.models import Category, Comment, Genre, Review, Title
 from users.models import CustomUser
-from reviews.models import (
-    Comment,
-    Review,
-    Category,
-    Genre,
-    Title
-)
 
 
 class CategorySerializer(serializers.ModelSerializer):

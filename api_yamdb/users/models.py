@@ -1,6 +1,6 @@
-from django.db.models import CharField, TextField, EmailField
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
+from django.db.models import CharField, EmailField, TextField
 
 
 class UsernameCharacterValidator(UnicodeUsernameValidator):

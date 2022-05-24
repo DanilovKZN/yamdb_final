@@ -1,45 +1,29 @@
-from django.db.models import Avg
-from django.db import IntegrityError
-from django.shortcuts import get_object_or_404
-from django.core.mail import send_mail
-from django.contrib.auth import tokens
 from django.conf import settings
+from django.contrib.auth import tokens
+from django.core.mail import send_mail
+from django.db import IntegrityError
+from django.db.models import Avg
+from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import filters, viewsets, status, mixins
+from rest_framework import filters, mixins, status, viewsets
+from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import (
-    AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly
-)
-from rest_framework.decorators import api_view, permission_classes, action
+from rest_framework.permissions import (AllowAny, IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework.throttling import AnonRateThrottle
-
-from .permissions import (
-    IsAdminOrReadOnly,
-    IsAdminOrReadOnlyForGenresTitlesCat,
-    IsAdmin,
-    IsAuthorOrAdminOrModerReadOnly)
-from .filters import TitleGenreFilter
-from .serializers import (
-    GenreSerializer,
-    TitleSerializer,
-    UserSerializer,
-    TokenSerializer,
-    SignUpSerializer,
-    AccountSerializer,
-    ReviewSerializer,
-    CommentSerializer,
-    CategorySerializer,
-    TitleCreateSerializer
-)
+from rest_framework_simplejwt.tokens import RefreshToken
+from reviews.models import Category, Genre, Review, Title
 from users.models import CustomUser
-from reviews.models import (
-    Review,
-    Title,
-    Genre,
-    Category
-)
+
+from .filters import TitleGenreFilter
+from .permissions import (IsAdmin, IsAdminOrReadOnly,
+                          IsAdminOrReadOnlyForGenresTitlesCat,
+                          IsAuthorOrAdminOrModerReadOnly)
+from .serializers import (AccountSerializer, CategorySerializer,
+                          CommentSerializer, GenreSerializer, ReviewSerializer,
+                          SignUpSerializer, TitleCreateSerializer,
+                          TitleSerializer, TokenSerializer, UserSerializer)
 
 
 class ListCreateDeleteViewSet(
