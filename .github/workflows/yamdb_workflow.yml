@@ -56,7 +56,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      PROJECT_ROOT: ~/app/api_yamdb
+      PROJECT_ROOT: ~/yamdb_final
     needs: build_and_push_to_docker_hub
     steps:
     - name: Check out the repo
