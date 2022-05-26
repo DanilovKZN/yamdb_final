@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '5dhx_kn#dg52fy1l%y5((5r6zmlm!4p@cbb12p4&o1
 
 DEBUG = False
 
-#ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', default='web').split(" ")
 
 
