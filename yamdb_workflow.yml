@@ -1,8 +1,6 @@
 name: yamdb_final
 
-on:
-  push:
-    barnches: [main]
+on: [push]
 
 jobs:
   tests:
@@ -58,6 +56,7 @@ jobs:
     env:
       PROJECT_ROOT: ~/yamdb_final
     needs: build_and_push_to_docker_hub
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main
     steps:
     - name: Check out the repo
       uses: actions/checkout@v2
@@ -108,4 +107,4 @@ jobs:
     #   with:
     #     to: ${{ secrets.TELEGRAM_TO }}
     #     token: ${{ secrets.TELEGRAM_TOKEN }}
-    #     message: Ну что, Животное, твой ${{ github.workflow }} успешно выполнен!^)
+    #     message: Ну что, Животное, твой ${{ github.workflow }} успешно выполнен!
