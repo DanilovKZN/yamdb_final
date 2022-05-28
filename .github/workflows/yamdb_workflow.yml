@@ -81,8 +81,6 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           sudo docker pull danilovkzn/infra_sp2:latest
-          #sudo docker stop $(sudo docker ps -a -q)
-          #sudo docker run --rm -d -p 5000:5000 danilovkzn/infra_sp2
           sudo docker-compose stop
           sudo docker-compose rm web
           sudo systemctl stop nginx
