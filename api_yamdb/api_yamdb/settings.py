@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '5dhx_kn#dg52fy1l%y5((5r6zmlm!4p@cbb12p4&o1
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '51.250.99.229',
+    os.getenv('SER_YANDEX', '51.250.99.229'),
     '127.0.0.1',
     'localhost',
     'web'
