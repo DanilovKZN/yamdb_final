@@ -1,8 +1,6 @@
 name: yamdb_final
 
-on:
-  push:
-    barnches: [main]
+on: [push]
 
 jobs:
   tests:
