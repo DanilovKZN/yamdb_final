@@ -39,6 +39,9 @@ services:
         condition: service_healthy
     image: danilovkzn/infra_sp2:ver.1.1.8
     restart: always
+    volumes:
+      - static_value:/app/static/
+      - media_value:/app/media/
     env_file:
       - ./.env
   nginx:
@@ -71,11 +74,11 @@ server {
     server_name <IP your server>;
 
     location /static/ {
-        root /var/html/;
+        root /app/;
     }
     
     location /media/ {
-        root /var/html/;
+        root /app/;
     }
     
     location / {
@@ -102,12 +105,15 @@ SER_YANDEX = 'IP сервера'
 
 5. Собрать образы 
 ``` bash
+sudo docker-compose stop
+sudo docker-compose rm web
+sudo systemctl stop nginx
 sudo docker pull danilovkzn/infra_sp2:latest
 sudo docker-compose up -d --build
 ```
 6. Зайти в контейнер web:
 ``` bash
-sudo docker exec -it <CONTAINER_ID> bash
+sudo docker exec -it <CONTAINER_ID WEB> bash
 ```
 7. Заполнить БД данными и создать пользователя:
 
