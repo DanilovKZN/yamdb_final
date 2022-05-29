@@ -8,7 +8,7 @@
 ## Как запустить проект:
 
 1. Установить Docker и Docker-compose на свой сервер:
-``` bash
+```bash
 sudo apt upgrade -y
 sudo apt install docker.io
 sudo apt-get -y install python-pip
