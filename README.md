@@ -8,7 +8,7 @@
 ## Как запустить проект:
 
 1. Установить Docker и Docker-compose на свой сервер:
-```bash
+```shell
 sudo apt upgrade -y
 sudo apt install docker.io
 sudo apt-get -y install python-pip
@@ -18,7 +18,7 @@ chmod +x /usr/local/bin/docker-compose
 
 2. Создать файл <в созданной ранее директории проекта> docker-compose.yaml и заполнить его :
 
-```python
+```Dockerfile
 version: '3.8'
 services:
   db:
