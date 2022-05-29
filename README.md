@@ -59,16 +59,16 @@ volumes:
   media_value:
 ```
 3.  В этой же директории создать папку nginx:
-```bash
+```Shell
 sudo mkdir nginx/
 cd nginx/
 ```
    В папке nginx создать файл конфигурации для nginx:
-```bash
+```Shell
 sudo touch default.conf
 ```
 И заполнить его:
-```python
+```Nginx
 server {
     listen 80;
     server_name <IP your server>;
@@ -92,7 +92,7 @@ server {
 }
 ```
 4.  Создать и заполнить файл .env в директории , где расположен docker-compose:
-```python
+```Python
 SECRET_KEY = 'Ключ приложения'
 DB_ENGINE = 'Используемая БД'
 DB_NAME = 'Имя БД'
@@ -104,7 +104,7 @@ SER_YANDEX = 'IP сервера'
 ```
 
 5. Собрать образы 
-```bash
+```Shell
 sudo docker-compose stop
 sudo docker-compose rm web
 sudo systemctl stop nginx
@@ -112,12 +112,12 @@ sudo docker pull danilovkzn/infra_sp2:latest
 sudo docker-compose up -d --build
 ```
 6. Зайти в контейнер web:
-```bash
+```Shell
 sudo docker exec -it <CONTAINER_ID WEB> bash
 ```
 7. Заполнить БД данными и создать пользователя:
 
-```bash
+```Shell
 sudo docker-compose exec web python manage.py migrate
 sudo docker-compose exec web python manage.py createsuperuser
 sudo docker-compose exec web python manage.py collectstatic --no-input
