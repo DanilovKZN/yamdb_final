@@ -24,7 +24,7 @@ services:
   db:
    image: postgres:13.0-alpine
   volumes:
-    - /var/lib/postgresql/data/
+    - postgres_data:/var/lib/postgresql/data/
   env_file:
     - ./.env
   healthcheck:
@@ -57,6 +57,7 @@ services:
 volumes:
   static_value:
   media_value:
+  postgres_data:
 ```
 3.  В этой же директории создать папку nginx:
 ```Shell
@@ -74,11 +75,11 @@ server {
     server_name <IP your server>;
 
     location /static/ {
-        root /app/;
+        root /var/html/;
     }
     
     location /media/ {
-        root /app/;
+        root /var/html/;
     }
     
     location / {
