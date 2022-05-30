@@ -15,9 +15,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     os.getenv('SER_YANDEX', '51.250.99.229'),
-    '127.0.0.1',
-    'localhost',
-    'web'
+    os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1'),
+    os.getenv('LOCALHOST', 'localhost'),
+    os.getenv('WEB', 'web')
 ]
 
 
