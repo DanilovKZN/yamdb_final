@@ -39,9 +39,6 @@ services:
         condition: service_healthy
     image: danilovkzn/infra_sp2:ver.1.1.8
     restart: always
-    volumes:
-      - static_value:/app/static/
-      - media_value:/app/media/
     env_file:
       - ./.env
   nginx:
