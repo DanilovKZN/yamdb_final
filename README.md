@@ -98,10 +98,7 @@ POSTGRES_USER = 'Имя пользователя'
 POSTGRES_PASSWORD = 'Пароль'
 DB_HOST = 'Название кониейнера в docker-compose'
 DB_PORT = 'Порт для подключения к БД'
-SER_YANDEX = 'IP сервера'
-DJANGO_ALLOWED_HOSTS = 'Внутренний адрес'
-LOCALHOST = 'localhost'
-WEB = 'web'
+HOSTS = 'IP сервера и внутренние адреса списком'
 ```
 
 5. Собрать образы 

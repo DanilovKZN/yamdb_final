@@ -13,11 +13,10 @@ SECRET_KEY = os.getenv('SECRET_KEY', '5dhx_kn#dg52fy1l%y5((5r6zmlm!4p@cbb12p4&o1
 
 DEBUG = False
 
+HOSTS = os.getenv('HOSTS', '["51.250.99.229", "127.0.0.1",  "localhost", "web"]')
+
 ALLOWED_HOSTS = [
-    os.getenv('SER_YANDEX', '51.250.99.229'),
-    os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1'),
-    os.getenv('LOCALHOST', 'localhost'),
-    os.getenv('WEB', 'web')
+    hosts for host in HOSTS
 ]
 
 
