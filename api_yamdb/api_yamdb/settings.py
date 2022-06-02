@@ -15,8 +15,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = os.getenv(
     'HOSTS',
-    '51.250.99.229,127.0.0.1,localhost,web'
-).split(',')
+    '51.250.99.229, 127.0.0.1, localhost, web'
+).replace(" ", "").split(',')
 
 
 INSTALLED_APPS = [
